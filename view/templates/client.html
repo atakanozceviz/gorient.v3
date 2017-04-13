@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     {{template "header" .}}
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
 </head>
-<body>
-<div class="container">
-    <h6>Connected to: {{.ID}}</h6>
+<body style="background-color: #000000">
+<div class="container-fluid">
+    <div class="col-sm-12 text-center">
+        <h6 style="color: #414141">Connected to: {{.ID}}</h6>
+    </div>
 </div>
 
 <script>
