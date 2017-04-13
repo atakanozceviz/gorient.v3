@@ -19,10 +19,8 @@ $(function () {
     });
 
     socket.on("DC", function (data) {
-        if (typeof cid != "undefined") {
-            if (data == cid) {
-                $("#qr,#info").show();
-            }
+        if (data == cid) {
+            $("#qr,#info").show();
         }
     });
 
