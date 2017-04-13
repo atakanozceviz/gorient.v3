@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{template "header" .}}
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+</head>
+<body>
+<div class="container">
+
+    <div id="qr" class="col-sm-12 text-center"><p id="info">Scan QR code to connect</p></div>
+
+    <div class="col-sm-12">
+        <table>
+            <tr>
+                <td>Alpha</td>
+                <td id="alpha"></td>
+            </tr>
+            <tr>
+                <td>Beta</td>
+                <td id="beta"></td>
+            </tr>
+            <tr>
+                <td>Gamma</td>
+                <td id="gamma"></td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div class="col-sm-12 text-center" style="perspective: 300px">
+        <img id="imgLogo" style="max-height: 200px" src="../static/img/logo.png" class="img-fluid" alt="Logo">
+    </div>
+    <br>
+    <div id="color" class="col-sm-12 text-center" onclick="fullscreen($(this))"><sup class="midtext">Click Me!</sup></div>
+</div>
+
+<!--ColorWheel-->
+<img id="wheel" src="../static/img/wheel.png" width="180" height="180" style="display: none;">
+<canvas id="canvas" width="180" height="180" style="display: none;"></canvas>
+
+<script src="../static/js/socket.io.min.js"></script>
+<script src="../static/js/jquery-3.2.1.min.js"></script>
+<script src="../static/js/tether.min.js"></script>
+<script src="../static/js/screenfull.min.js"></script>
+<script>
+    function fullscreen(target) {
+        if (screenfull.enabled) {
+            screenfull.toggle(target[0]);
+
+            target.width(screen.width);
+            target.height(screen.height);
+
+            $(".midtext").hide();
+
+            screenfull.onchange(function () {
+                if (!screenfull.isFullscreen) {
+                    target.height("200px");
+                    $(".midtext").show();
+                }
+            });
+        }
+    }
+</script>
+<script src="../static/js/server.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+</body>
+</html>
