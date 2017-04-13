@@ -52,7 +52,8 @@
 
             screenfull.onchange(function () {
                 if (!screenfull.isFullscreen) {
-                    target.width("200px");
+                    target.width("");
+                    target.height("");
                     $(".midtext").show();
                 }
             });
